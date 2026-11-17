@@ -7,6 +7,7 @@ import { linkWhatsapp, formatarTelefone } from "@/lib/telefone";
 import { consultarPedidos, totalDoPedido, type Filtros } from "@/lib/relatorio";
 import { montarMensagem } from "@/lib/cobranca";
 import BotaoWhatsapp from "./BotaoWhatsapp";
+import BotaoVoltar from "@/components/BotaoVoltar";
 
 export default async function CobrancaPage({
   searchParams,
@@ -59,9 +60,7 @@ export default async function CobrancaPage({
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900 p-4">
       <div className="max-w-4xl mx-auto space-y-4">
-        <Link href={voltar} className="text-sm text-blue-600 hover:underline">
-          ← Voltar ao relatório
-        </Link>
+        <BotaoVoltar href={voltar} />
 
         <h1 className="text-2xl font-bold">Mala direta</h1>
 

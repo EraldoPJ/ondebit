@@ -4,6 +4,7 @@ import { exigirSessao } from "@/lib/session";
 import { formatarTelefone } from "@/lib/telefone";
 import BotaoExcluir from "@/components/BotaoExcluir";
 import { alternarAtivoCliente, excluirCliente } from "./actions";
+import BotaoVoltar from "@/components/BotaoVoltar";
 
 export default async function ClientesPage({
   searchParams,
@@ -22,9 +23,7 @@ export default async function ClientesPage({
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900 p-4">
       <div className="max-w-4xl mx-auto space-y-4">
-        <Link href="/" className="text-sm text-blue-600 hover:underline">
-          ← Voltar ao painel
-        </Link>
+        <BotaoVoltar />
 
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold">Clientes</h1>
