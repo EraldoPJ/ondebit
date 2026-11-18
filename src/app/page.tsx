@@ -33,7 +33,9 @@ const cards = [
 
 export default async function Dashboard() {
   const sessao = await exigirSessao();
-  const visiveis = cards.filter((c) => !c.somenteAdmin || sessao.perfil === "ADMIN");
+  const visiveis = cards.filter(
+    (c) => !c.somenteAdmin || sessao.perfil === "ADMIN",
+  );
 
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900">
@@ -56,10 +58,12 @@ export default async function Dashboard() {
           <Link
             key={card.href}
             href={card.href}
-            className="bg-white rounded-xl shadow p-6 hover:shadow-md hover:-translate-y-0.5 transition"
+            className="group bg-white rounded-xl shadow p-6 hover:shadow-md hover:-translate-y-0.5 transition"
           >
             <h2 className="text-lg font-semibold">{card.titulo}</h2>
-            <p className="text-sm text-gray-600 mt-1">{card.descricao}</p>
+            <p className="text-sm text-gray-600 mt-1 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100">
+              {card.descricao}
+            </p>
           </Link>
         ))}
       </section>
